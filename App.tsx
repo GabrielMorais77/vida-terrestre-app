@@ -1,0 +1,74 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Text } from 'react-native';
+
+import HomeScreen from './src/screens/HomeScreen';
+import MapScreen from './src/screens/MapScreen';
+import ScannerScreen from './src/screens/ScannerScreen';
+import SpeciesDetailScreen from './src/screens/SpeciesDetailScreen';
+
+// Tipos de navegação
+export type RootStackParamList = {
+  Tabs: undefined;
+  SpeciesDetail: {
+    id: string;
+  };
+};
+
+export type BottomTabParamList = {
+  Inicio: undefined;
+  Mapa: undefined;
+  Scanner: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<BottomTabParamList>();
+
+function Tabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: { backgroundColor: '#020617', borderTopColor: '#1f2937' },
+        tabBarActiveTintColor: '#4ade80',
+        tabBarInactiveTintColor: '#9ca3af',
+      }}
+    >
+      <Tab.Screen
+        name="Inicio"
+        component={HomeScreen as any}
+        options={{ tabBarLabel: 'Início', tabBarIcon: () => <Text>🏠</Text> }}
+      />
+      <Tab.Screen
+        name="Mapa"
+        component={MapScreen}
+        options={{ tabBarLabel: 'Mapa', tabBarIcon: () => <Text>🗺️</Text> }}
+      />
+      <Tab.Screen
+        name="Scanner"
+        component={ScannerScreen}
+        options={{ tabBarLabel: 'Scanner', tabBarIcon: () => <Text>📷</Text> }}
+      />
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Tabs"
+          component={Tabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SpeciesDetail"
+          component={SpeciesDetailScreen}
+          options={{ title: 'Espécie' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
