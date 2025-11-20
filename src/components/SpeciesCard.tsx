@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Species } from '../data/species';
 import StatusBadge from './StatusBadge';
 
@@ -12,7 +12,15 @@ export default function SpeciesCard({ item, onPress }: Props) {
   return (
     <Pressable style={styles.card} onPress={onPress}>
       <View style={styles.iconBox}>
-        <Text style={styles.icon}>{item.icon}</Text>
+        {item.imageUrl ? (
+          <Image 
+            source={{ uri: item.imageUrl }} 
+            style={styles.image}
+            resizeMode="cover"
+          />
+        ) : (
+          <Text style={styles.icon}>{item.icon}</Text>
+        )}
       </View>
       <View style={styles.info}>
         <Text style={styles.name}>{item.name}</Text>
@@ -41,7 +49,12 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'linear-gradient(135deg, #4ade80, #22c55e)', // só estético; RN não tem gradient nativo
+    backgroundColor: '#1e293b',
+    overflow: 'hidden', // Importante para o borderRadius funcionar na imagem
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
   icon: {
     fontSize: 38,
