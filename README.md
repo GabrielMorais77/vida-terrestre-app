@@ -1,50 +1,133 @@
-# Welcome to your Expo app 👋
+# 🌿 Vida Terrestre — Inventário de Fauna e Flora com IA
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo móvel para apoiar inventários de biodiversidade (fauna/flora), com foco em:
+- registro de espécies em campo,
+- visualização em mapa de áreas de risco ambientais,
+- uso de IA para reconhecimento assistido de espécies a partir de imagens.
 
-## Get started
+Construído em **React Native + Expo**, com navegação em abas, telas dedicadas para scanner, mapa e detalhes de espécies.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 1. Descrição do Problema
 
-2. Start the app
+O monitoramento da biodiversidade em unidades de conservação, áreas rurais e zonas de expansão urbana ainda é, em muitos casos, um processo:
 
-   ```bash
-   npx expo start
-   ```
+- **manual**, baseado em planilhas, cadernos de campo e registros dispersos;
+- **pouco integrado**, dificultando análises consolidadas entre fauna, flora e pressão antrópica;
+- **reativo**, onde riscos (desmatamento, perda de habitat, espécies ameaçadas) são identificados tardiamente.
 
-In the output, you'll find options to open the app in a
+Isso impacta diretamente:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- equipes de **gestão ambiental** que precisam de dados atualizados para tomada de decisão;
+- **pesquisadores** e **ONGs** que precisam de séries históricas confiáveis;
+- órgãos públicos que necessitam de informação estruturada para políticas de conservação.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+O app **Vida Terrestre** nasce para prototipar uma solução que centralize avistamentos de espécies, apoie o reconhecimento por IA a partir de fotos e destaque áreas de risco em um mapa interativo.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 2. Justificativa (Relevância Social)
 
-```bash
-npm run reset-project
-```
+O projeto se conecta diretamente com a **Agenda 2030 da ONU**, em especial:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **ODS 15 – Vida Terrestre**  
+  - Conservação, recuperação e uso sustentável de ecossistemas terrestres.  
+  - Monitoramento de espécies vulneráveis e ameaçadas.
+- (Indiretamente) **ODS 13 – Ação Contra a Mudança Global do Clima**  
+  - Apoio a políticas de mitigação e adaptação via informação qualificada sobre impactos em habitats.
+- (Indiretamente) **ODS 11 – Cidades e Comunidades Sustentáveis**  
+  - Gestão territorial mais responsável em zonas periurbanas e rurais.
 
-## Learn more
+**Justificativa técnica e social:**
 
-To learn more about developing your project with Expo, look at the following resources:
+- Facilitar **inventários participativos** (profissionais + cidadãos) com tecnologia móvel acessível.
+- Prover uma base para **análises espaciais** de risco (ex.: sobreposição de avistamentos com áreas de desmatamento).
+- Criar um ponto de partida para integrar **modelos de IA** (classificadores de imagem) ao fluxo de campo, reduzindo o tempo de identificação preliminar de espécies.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+O README justifica o uso de IA como componente estratégico:  
+> O reconhecimento automático não substitui o especialista, mas **acelera a triagem** e permite que equipes foquem esforço na validação e na análise ecológica, não apenas na coleta manual de dados.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 3. Público-Alvo
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+O aplicativo é voltado a:
+
+- **Gestores de unidades de conservação** (federais, estaduais, municipais);
+- **Órgãos ambientais** (secretarias, agências reguladoras);
+- **Pesquisadores e estudantes** de biologia, ecologia e ciências ambientais;
+- **ONGs e coletivos socioambientais** envolvidos em monitoramento de fauna/flora;
+- **Cientistas cidadãos** e voluntários engajados em ações de conservação.
+
+Benefícios diretos:
+
+- Centralização de registros de espécies com localização, status de conservação e data.
+- Visualização intuitiva de **áreas de risco** (desmatamento, pressão urbana).
+- Suporte a **trabalho de campo** com coleta rápida, mesmo com conectividade limitada (visão futura).
+
+---
+
+## 4. Objetivos do Aplicativo
+
+### 4.1 Objetivo Geral
+
+Prover um protótipo funcional de aplicativo móvel para **inventário de fauna e flora com suporte de IA**, integrando:
+
+- listagem e busca de espécies;
+- visualização em mapa de áreas de risco;
+- scanner de espécies por imagem (simulado no protótipo, planejado para IA real).
+
+### 4.2 Objetivos Específicos (mensuráveis)
+
+1. **Cadastro e consulta rápida de espécies**  
+   - Permitir que o usuário encontre uma espécie em até **3 interações** (busca + toque no card).
+2. **Visualização de risco**  
+   - Exibir, em uma tela dedicada, um mapa com marcadores de:
+     - avistamentos recentes;
+     - áreas de desmatamento / risco (planejado).
+3. **Reconhecimento assistido por IA**  
+   - Disponibilizar um fluxo de captura de imagem com sugestão automática de espécie (no protótipo: simulado; na evolução: integração com modelo real).
+4. **Suporte a tomada de decisão**  
+   - Fornecer, para cada espécie, ao menos:
+     - nome comum,
+     - nome científico,
+     - status de conservação (segura, vulnerável, ameaçada),
+     - localização e data do último registro.
+
+---
+
+## 5. Tipo de Aplicação
+
+- **Tipo:** Aplicativo móvel **híbrido/cross-platform**  
+- **Tecnologias principais:**
+  - **React Native** (via **Expo**)
+  - **TypeScript**
+  - **React Navigation** (stack + bottom tabs)
+
+O app foi desenhado para rodar em:
+
+- **Android** (via Expo Go, build ou emulador);
+- **iOS** (via Expo Go, build ou simulador);
+- **Web** (via `expo start --web`, útil para demonstrações e testes de layout, podendo evoluir para PWA).
+
+---
+
+## 6. Arquitetura da Aplicação
+
+Estrutura principal do projeto:
+
+```text
+src/
+  components/
+    SpeciesCard.tsx       # Card de espécie (lista principal)
+    StatusBadge.tsx       # Badge visual com status de conservação
+  data/
+    species.ts            # Lista estática de espécies (mock de banco/API)
+  screens/
+    HomeScreen.tsx        # Tela inicial com busca, cards e alerta de risco
+    MapScreen.tsx         # Tela de mapa (placeholders de mapa/área de risco)
+    ScannerScreen.tsx     # Tela de scanner (simulação de IA)
+    SpeciesDetailScreen.tsx # Detalhes de espécie selecionada
+App.tsx                   # Navegação (Stack + Bottom Tab)
+app.json                  # Configuração Expo (nome, ícone, esquema etc.)
