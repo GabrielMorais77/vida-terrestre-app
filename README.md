@@ -1,133 +1,285 @@
-# 🌿 Vida Terrestre — Inventário de Fauna e Flora com IA
+# 🌿 Vida Terrestre
 
-Aplicativo móvel para apoiar inventários de biodiversidade (fauna/flora), com foco em:
-- registro de espécies em campo,
-- visualização em mapa de áreas de risco ambientais,
-- uso de IA para reconhecimento assistido de espécies a partir de imagens.
+<div align="center">
 
-Construído em **React Native + Expo**, com navegação em abas, telas dedicadas para scanner, mapa e detalhes de espécies.
+**Inventário de Fauna e Flora com IA**
 
----
+[![React Native](https://img.shields.io/badge/React%20Native-0.74-61DAFB?style=flat&logo=react&logoColor=white)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-SDK%2051-000020?style=flat&logo=expo&logoColor=white)](https://expo.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 1. Descrição do Problema
+*Apoiando a conservação da biodiversidade através da tecnologia*
 
-O monitoramento da biodiversidade em unidades de conservação, áreas rurais e zonas de expansão urbana ainda é, em muitos casos, um processo:
+[Características](#-características) • [Instalação](#-instalação) • [Como Usar](#-como-usar) • [Arquitetura](#-arquitetura) • [Roadmap](#-roadmap)
 
-- **manual**, baseado em planilhas, cadernos de campo e registros dispersos;
-- **pouco integrado**, dificultando análises consolidadas entre fauna, flora e pressão antrópica;
-- **reativo**, onde riscos (desmatamento, perda de habitat, espécies ameaçadas) são identificados tardiamente.
-
-Isso impacta diretamente:
-
-- equipes de **gestão ambiental** que precisam de dados atualizados para tomada de decisão;
-- **pesquisadores** e **ONGs** que precisam de séries históricas confiáveis;
-- órgãos públicos que necessitam de informação estruturada para políticas de conservação.
-
-O app **Vida Terrestre** nasce para prototipar uma solução que centralize avistamentos de espécies, apoie o reconhecimento por IA a partir de fotos e destaque áreas de risco em um mapa interativo.
+</div>
 
 ---
 
-## 2. Justificativa (Relevância Social)
+## 📋 Sobre o Projeto
 
-O projeto se conecta diretamente com a **Agenda 2030 da ONU**, em especial:
+**Vida Terrestre** é um aplicativo móvel desenvolvido para apoiar inventários de biodiversidade em campo, integrando tecnologia de reconhecimento de imagens por IA para identificação assistida de espécies de fauna e flora.
 
-- **ODS 15 – Vida Terrestre**  
-  - Conservação, recuperação e uso sustentável de ecossistemas terrestres.  
-  - Monitoramento de espécies vulneráveis e ameaçadas.
-- (Indiretamente) **ODS 13 – Ação Contra a Mudança Global do Clima**  
-  - Apoio a políticas de mitigação e adaptação via informação qualificada sobre impactos em habitats.
-- (Indiretamente) **ODS 11 – Cidades e Comunidades Sustentáveis**  
-  - Gestão territorial mais responsável em zonas periurbanas e rurais.
+### 🎯 Problema que Resolve
 
-**Justificativa técnica e social:**
+O monitoramento da biodiversidade ainda enfrenta desafios significativos:
 
-- Facilitar **inventários participativos** (profissionais + cidadãos) com tecnologia móvel acessível.
-- Prover uma base para **análises espaciais** de risco (ex.: sobreposição de avistamentos com áreas de desmatamento).
-- Criar um ponto de partida para integrar **modelos de IA** (classificadores de imagem) ao fluxo de campo, reduzindo o tempo de identificação preliminar de espécies.
+- **Processos manuais** baseados em planilhas e registros dispersos
+- **Falta de integração** entre dados de fauna, flora e pressão antrópica
+- **Identificação tardia de riscos** ambientais (desmatamento, perda de habitat)
+- **Dificuldade de análise** consolidada e tomada de decisão baseada em dados
 
-O README justifica o uso de IA como componente estratégico:  
-> O reconhecimento automático não substitui o especialista, mas **acelera a triagem** e permite que equipes foquem esforço na validação e na análise ecológica, não apenas na coleta manual de dados.
+### 🌍 Alinhamento com os ODS
 
----
+Este projeto contribui diretamente para os Objetivos de Desenvolvimento Sustentável da ONU:
 
-## 3. Público-Alvo
-
-O aplicativo é voltado a:
-
-- **Gestores de unidades de conservação** (federais, estaduais, municipais);
-- **Órgãos ambientais** (secretarias, agências reguladoras);
-- **Pesquisadores e estudantes** de biologia, ecologia e ciências ambientais;
-- **ONGs e coletivos socioambientais** envolvidos em monitoramento de fauna/flora;
-- **Cientistas cidadãos** e voluntários engajados em ações de conservação.
-
-Benefícios diretos:
-
-- Centralização de registros de espécies com localização, status de conservação e data.
-- Visualização intuitiva de **áreas de risco** (desmatamento, pressão urbana).
-- Suporte a **trabalho de campo** com coleta rápida, mesmo com conectividade limitada (visão futura).
+| ODS | Contribuição |
+|-----|--------------|
+| **ODS 15** - Vida Terrestre | Conservação e monitoramento de ecossistemas terrestres e espécies vulneráveis |
+| **ODS 13** - Ação Contra a Mudança Climática | Apoio a políticas de mitigação através de informação qualificada |
+| **ODS 11** - Cidades Sustentáveis | Gestão territorial responsável em zonas periurbanas e rurais |
 
 ---
 
-## 4. Objetivos do Aplicativo
+## ✨ Características
 
-### 4.1 Objetivo Geral
+### 🔍 Scanner Inteligente
+- Captura de imagens via câmera ou galeria
+- Reconhecimento assistido por IA com níveis de confiança
+- Sugestões automáticas de espécies (top 3)
+- Interface otimizada para uso em campo
 
-Prover um protótipo funcional de aplicativo móvel para **inventário de fauna e flora com suporte de IA**, integrando:
+### 🗺️ Mapeamento de Risco
+- Visualização georreferenciada de avistamentos
+- Marcação de áreas de risco ambiental
+- Localização em tempo real
+- Suporte a múltiplas camadas de informação
 
-- listagem e busca de espécies;
-- visualização em mapa de áreas de risco;
-- scanner de espécies por imagem (simulado no protótipo, planejado para IA real).
+### 📚 Banco de Espécies
+- Busca rápida por nome comum ou científico
+- Informações detalhadas sobre cada espécie
+- Status de conservação (IUCN)
+- Histórico de avistamentos
 
-### 4.2 Objetivos Específicos (mensuráveis)
+### 🌐 Internacionalização
+- Suporte a múltiplos idiomas (PT/EN)
+- Interface adaptável ao contexto do usuário
 
-1. **Cadastro e consulta rápida de espécies**  
-   - Permitir que o usuário encontre uma espécie em até **3 interações** (busca + toque no card).
-2. **Visualização de risco**  
-   - Exibir, em uma tela dedicada, um mapa com marcadores de:
-     - avistamentos recentes;
-     - áreas de desmatamento / risco (planejado).
-3. **Reconhecimento assistido por IA**  
-   - Disponibilizar um fluxo de captura de imagem com sugestão automática de espécie (no protótipo: simulado; na evolução: integração com modelo real).
-4. **Suporte a tomada de decisão**  
-   - Fornecer, para cada espécie, ao menos:
-     - nome comum,
-     - nome científico,
-     - status de conservação (segura, vulnerável, ameaçada),
-     - localização e data do último registro.
-
----
-
-## 5. Tipo de Aplicação
-
-- **Tipo:** Aplicativo móvel **híbrido/cross-platform**  
-- **Tecnologias principais:**
-  - **React Native** (via **Expo**)
-  - **TypeScript**
-  - **React Navigation** (stack + bottom tabs)
-
-O app foi desenhado para rodar em:
-
-- **Android** (via Expo Go, build ou emulador);
-- **iOS** (via Expo Go, build ou simulador);
-- **Web** (via `expo start --web`, útil para demonstrações e testes de layout, podendo evoluir para PWA).
+### 🎨 Design Responsivo
+- Tema escuro para uso em campo
+- Interface otimizada para dispositivos móveis
+- Experiência consistente em Android e iOS
 
 ---
 
-## 6. Arquitetura da Aplicação
+## 👥 Público-Alvo
 
-Estrutura principal do projeto:
+- 🏛️ Gestores de unidades de conservação
+- 🔬 Pesquisadores e estudantes de biologia/ecologia
+- 🌱 ONGs e coletivos socioambientais
+- 🏢 Órgãos ambientais governamentais
+- 👨‍🔬 Cientistas cidadãos e voluntários
 
-```text
+---
+
+## 🚀 Instalação
+
+### Pré-requisitos
+
+- Node.js >= 18.x
+- npm ou yarn
+- Expo Go (para testar no dispositivo)
+
+### Configuração do Ambiente
+
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/vida-terrestre-app.git
+cd vida-terrestre-app
+
+# Instale as dependências
+npm install
+# ou
+yarn install
+
+# Inicie o servidor de desenvolvimento
+npx expo start
+```
+
+### 📱 Testando no Dispositivo
+
+1. Instale o app **Expo Go** no seu dispositivo:
+   - [Android - Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent)
+   - [iOS - App Store](https://apps.apple.com/app/expo-go/id982107779)
+
+2. Escaneie o QR Code exibido no terminal
+
+3. O app será aberto automaticamente no Expo Go
+
+---
+
+## 💻 Como Usar
+
+### 🏠 Tela Inicial (Home)
+- Navegue pela lista de espécies cadastradas
+- Use a barra de busca para encontrar espécies específicas
+- Toque em qualquer card para ver detalhes completos
+
+### 📸 Scanner de Espécies
+1. Acesse a aba "Scanner"
+2. Conceda permissão de acesso à câmera
+3. Capture uma foto ou selecione da galeria
+4. Visualize as sugestões de identificação com níveis de confiança
+
+### 🗺️ Mapa de Áreas de Risco
+- Visualize avistamentos registrados
+- Identifique áreas de risco ambiental
+- Navegue pelo mapa com gestos intuitivos
+
+> **Nota:** O mapa completo está disponível apenas nas versões Android e iOS
+
+---
+
+## 🏗️ Arquitetura
+
+### Stack Tecnológico
+
+```
+┌─────────────────────────────────────┐
+│         React Native (Expo)         │
+├─────────────────────────────────────┤
+│  • TypeScript                       │
+│  • React Navigation                 │
+│  • Expo Camera                      │
+│  • Expo Image Picker                │
+│  • React Native Maps                │
+│  • Expo Location                    │
+└─────────────────────────────────────┘
+```
+
+### Estrutura de Pastas
+
+```
 src/
-  components/
-    SpeciesCard.tsx       # Card de espécie (lista principal)
-    StatusBadge.tsx       # Badge visual com status de conservação
-  data/
-    species.ts            # Lista estática de espécies (mock de banco/API)
-  screens/
-    HomeScreen.tsx        # Tela inicial com busca, cards e alerta de risco
-    MapScreen.tsx         # Tela de mapa (placeholders de mapa/área de risco)
-    ScannerScreen.tsx     # Tela de scanner (simulação de IA)
-    SpeciesDetailScreen.tsx # Detalhes de espécie selecionada
-App.tsx                   # Navegação (Stack + Bottom Tab)
-app.json                  # Configuração Expo (nome, ícone, esquema etc.)
+├── components/          # Componentes reutilizáveis
+│   ├── SpeciesCard.tsx
+│   └── StatusBadge.tsx
+├── data/               # Dados mockados
+│   └── species.ts
+├── i18n/               # Internacionalização
+│   └── index.ts
+├── screens/            # Telas da aplicação
+│   ├── HomeScreen.tsx
+│   ├── ScannerScreen.tsx
+│   ├── MapScreen.native.tsx
+│   ├── MapScreen.web.tsx
+│   └── SpeciesDetailScreen.tsx
+├── utils/              # Utilitários
+│   └── confidence.ts
+└── theme.ts            # Tema centralizado
+```
+
+---
+
+## 📊 Requisitos do Sistema
+
+### Desenvolvimento
+- **SO:** Windows 10+, macOS ou Linux
+- **Node.js:** 18.x ou superior
+- **npm:** 9+ ou Yarn
+
+### Dispositivos Móveis
+
+#### Android
+- Android 8.0 (API 26) ou superior
+- Expo Go instalado via Google Play
+
+#### iOS
+- iOS 13 ou superior
+- Expo Go via App Store
+
+### Web (Demonstração)
+- Navegadores modernos (Chrome, Edge, Firefox, Safari)
+- Uso recomendado apenas para avaliar layout
+
+---
+
+## 🗺️ Roadmap
+
+### 🎯 Próximas Funcionalidades
+
+#### v2.0 - Integração com IA Real
+- [ ] Conexão com API de visão computacional
+- [ ] Treinamento com datasets específicos de fauna/flora
+- [ ] Melhoria contínua da acurácia
+
+#### v2.1 - Backend e Persistência
+- [ ] API REST para registro de avistamentos
+- [ ] Banco de dados para histórico
+- [ ] Sincronização offline/online
+- [ ] Sistema de autenticação
+
+#### v2.2 - Funcionalidades Avançadas
+- [ ] Filtros por espécie, risco e período
+- [ ] Mapa de calor (heatmap) de avistamentos
+- [ ] Exportação de relatórios
+- [ ] Sistema de alertas para áreas críticas
+
+#### v3.0 - Colaboração e Comunidade
+- [ ] Perfis de usuário
+- [ ] Sistema de validação por especialistas
+- [ ] Gamificação e badges
+- [ ] Integração com plataformas de ciência cidadã
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um Fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add: nova funcionalidade incrível'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+### Diretrizes de Código
+- Use TypeScript para type safety
+- Siga o padrão de código existente
+- Adicione testes para novas funcionalidades
+- Atualize a documentação conforme necessário
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 👨‍💻 Autor
+
+**Gabriel de Morais Rodrigues**
+
+- GitHub: [(https://github.com/GabrielMorais77)](https://github.com/seu-usuario)
+- LinkedIn: [meu-perfil](https://www.linkedin.com/in/gabriel-morais-3078338a/)
+- Email: gabriel.morais777rodrigues@gmail.com
+
+---
+
+## 🙏 Agradecimentos
+
+- Comunidade React Native e Expo
+- Instituições de conservação que inspiraram este projeto
+- Todos os contribuidores e apoiadores
+
+---
+
+<div align="center">
+
+**Desenvolvido com 💚 para a conservação da biodiversidade**
+
+⭐ Se este projeto foi útil, considere dar uma estrela!
+
+</div>

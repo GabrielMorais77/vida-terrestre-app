@@ -1,29 +1,31 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from 'react-native';
 
 import HomeScreen from './src/screens/HomeScreen';
-import MapScreen from './src/screens/MapScreen';
+import MapScreen from './src/screens/MapScreen.native';
 import ScannerScreen from './src/screens/ScannerScreen';
 import SpeciesDetailScreen from './src/screens/SpeciesDetailScreen';
 
-// Tipos de navegação
-export type RootStackParamList = {
-  Tabs: undefined;
-  SpeciesDetail: {
-    id: string;
-  };
-};
-
-export type BottomTabParamList = {
+// Tabs
+export type TabParamList = {
   Inicio: undefined;
-  Mapa: undefined;
+  Mapa: { focusSpeciesId?: string } | undefined;
   Scanner: undefined;
 };
 
+// Stack raiz
+export type RootStackParamList = {
+  Tabs: NavigatorScreenParams<TabParamList>;
+  SpeciesDetail: { id: string };
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
-const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 function Tabs() {
   return (

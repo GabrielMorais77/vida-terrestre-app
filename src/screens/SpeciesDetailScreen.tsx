@@ -1,11 +1,11 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { RootStackParamList } from '../../App';
-import StatusBadge from '../components/StatusBadge';
-import { speciesList } from '../data/species';
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React from "react";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { RootStackParamList } from "../../App";
+import StatusBadge from "../components/StatusBadge";
+import { speciesList } from "../data/species";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'SpeciesDetail'>;
+type Props = NativeStackScreenProps<RootStackParamList, "SpeciesDetail">;
 
 export default function SpeciesDetailScreen({ route, navigation }: Props) {
   const { id } = route.params;
@@ -14,7 +14,7 @@ export default function SpeciesDetailScreen({ route, navigation }: Props) {
   if (!species) {
     return (
       <View style={styles.center}>
-        <Text style={{ color: '#fff' }}>Espécie não encontrada.</Text>
+        <Text style={{ color: "#fff" }}>Espécie não encontrada.</Text>
       </View>
     );
   }
@@ -42,7 +42,14 @@ export default function SpeciesDetailScreen({ route, navigation }: Props) {
 
       <Pressable
         style={styles.btn}
-        onPress={() => navigation.navigate('Tabs')} // você pode mandar para tab "Mapa" depois
+        onPress={() =>
+          navigation.navigate("Tabs", {
+            screen: "Mapa",
+            params: { focusSpeciesId: id },
+          })
+        }
+        accessibilityRole="button"
+        accessibilityLabel={`Ver a espécie ${species.name} no mapa`}
       >
         <Text style={styles.btnText}>Ver em mapa</Text>
       </Pressable>
@@ -53,61 +60,61 @@ export default function SpeciesDetailScreen({ route, navigation }: Props) {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#020617',
+    backgroundColor: "#020617",
   },
   center: {
     flex: 1,
-    backgroundColor: '#020617',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#020617",
+    alignItems: "center",
+    justifyContent: "center",
   },
   icon: {
     fontSize: 60,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 10,
   },
   name: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
+    fontWeight: "700",
+    textAlign: "center",
   },
   scientific: {
-    color: 'rgba(148,163,184,0.9)',
+    color: "rgba(148,163,184,0.9)",
     fontSize: 14,
-    fontStyle: 'italic',
-    textAlign: 'center',
+    fontStyle: "italic",
+    textAlign: "center",
     marginBottom: 12,
   },
   card: {
-    backgroundColor: 'rgba(15,23,42,0.9)',
+    backgroundColor: "rgba(15,23,42,0.9)",
     borderRadius: 18,
     padding: 14,
     marginTop: 14,
   },
   cardTitle: {
-    color: '#e5e7eb',
-    fontWeight: '600',
+    color: "#e5e7eb",
+    fontWeight: "600",
     marginBottom: 4,
   },
   cardText: {
-    color: '#9ca3af',
+    color: "#9ca3af",
     fontSize: 13,
   },
   cardSub: {
-    color: '#6b7280',
+    color: "#6b7280",
     fontSize: 11,
     marginTop: 4,
   },
   btn: {
     marginTop: 20,
-    backgroundColor: '#22c55e',
+    backgroundColor: "#22c55e",
     borderRadius: 999,
     paddingVertical: 12,
-    alignItems: 'center',
+    alignItems: "center",
   },
   btnText: {
-    color: '#022c22',
-    fontWeight: '700',
+    color: "#022c22",
+    fontWeight: "700",
   },
 });
